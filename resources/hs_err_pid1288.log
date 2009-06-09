@@ -1,0 +1,205 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x690888f2, pid=1288, tid=14600
+#
+# Java VM: Java HotSpot(TM) Client VM (11.0-b16 mixed mode, sharing windows-x86)
+# Problematic frame:
+# C  [atioglxx.dll+0x588f2]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x044c8c00):  JavaThread "AWT-EventQueue-0" [_thread_in_native, id=14600, stack(0x05010000,0x05060000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x0000000c
+
+Registers:
+EAX=0x00000000, EBX=0x00000000, ECX=0x08b10560, EDX=0x0000005b
+ESP=0x0505ef58, EBP=0x00000000, ESI=0x00000000, EDI=0x08b10560
+EIP=0x690888f2, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x0505ef58)
+0x0505ef58:   08a30b20 00000000 0505ef80 00000000
+0x0505ef68:   08a30b20 00000000 ffffffff 6907605b
+0x0505ef78:   00000000 00000000 08b10560 69076065
+0x0505ef88:   ffffffff 089b0a38 0837fd44 69075fd8
+0x0505ef98:   00000001 6908d2f9 00000001 0837fd44
+0x0505efa8:   0837fd38 08a3eb78 180144df 180144df
+0x0505efb8:   089b0a38 6907826e 0837fd44 0505efd8
+0x0505efc8:   08a3f4e0 76d30560 089b0a38 6907e4ed 
+
+Instructions: (pc=0x690888f2)
+0x690888e2:   0b 00 00 33 db 3b c3 74 05 8b 68 24 eb 02 33 ed
+0x690888f2:   8b 75 0c 8b 06 3b c3 8d 48 01 89 0e 75 12 83 3d 
+
+
+Stack: [0x05010000,0x05060000],  sp=0x0505ef58,  free space=315k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [atioglxx.dll+0x588f2]
+
+[error occurred during error reporting (printing native stack), id 0xc0000005]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.sun.opengl.impl.windows.WGL.wglMakeCurrent(JJ)Z+0
+j  com.sun.opengl.impl.windows.WindowsGLContext.makeCurrentImpl()I+135
+j  com.sun.opengl.impl.GLContextImpl.makeCurrent()I+56
+j  com.sun.opengl.impl.windows.WindowsGLDrawableFactory$2.run()V+30
+j  com.sun.opengl.impl.windows.WindowsGLDrawableFactory.maybeDoSingleThreadedWorkaround(Ljava/lang/Runnable;)V+20
+j  com.sun.opengl.impl.windows.WindowsGLDrawableFactory.createGLPbuffer(Ljavax/media/opengl/GLCapabilities;Ljavax/media/opengl/GLCapabilitiesChooser;IILjavax/media/opengl/GLContext;)Ljavax/media/opengl/GLPbuffer;+47
+j  javax.media.opengl.GLJPanel.initialize()V+105
+j  javax.media.opengl.GLJPanel.paintComponent(Ljava/awt/Graphics;)V+132
+j  javax.swing.JComponent.paint(Ljava/awt/Graphics;)V+269
+j  javax.swing.JComponent.paintChildren(Ljava/awt/Graphics;)V+473
+j  javax.swing.JComponent.paint(Ljava/awt/Graphics;)V+301
+j  javax.swing.JComponent.paintChildren(Ljava/awt/Graphics;)V+473
+j  javax.swing.JComponent.paint(Ljava/awt/Graphics;)V+301
+j  javax.swing.JLayeredPane.paint(Ljava/awt/Graphics;)V+73
+j  javax.swing.JComponent.paintChildren(Ljava/awt/Graphics;)V+473
+j  javax.swing.JComponent.paintToOffscreen(Ljava/awt/Graphics;IIIIII)V+72
+j  javax.swing.RepaintManager$PaintManager.paintDoubleBuffered(Ljavax/swing/JComponent;Ljava/awt/Image;Ljava/awt/Graphics;IIII)V+105
+j  javax.swing.RepaintManager$PaintManager.paint(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljava/awt/Graphics;IIII)Z+116
+j  javax.swing.RepaintManager.paint(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljava/awt/Graphics;IIII)V+52
+j  javax.swing.JComponent.paint(Ljava/awt/Graphics;)V+204
+j  java.awt.GraphicsCallback$PaintCallback.run(Ljava/awt/Component;Ljava/awt/Graphics;)V+2
+j  sun.awt.SunGraphicsCallback.runOneComponent(Ljava/awt/Component;Ljava/awt/Rectangle;Ljava/awt/Graphics;Ljava/awt/Shape;I)V+155
+j  sun.awt.SunGraphicsCallback.runComponents([Ljava/awt/Component;Ljava/awt/Graphics;I)V+104
+j  java.awt.Container.paint(Ljava/awt/Graphics;)V+73
+j  javax.swing.RepaintManager.paintDirtyRegions(Ljava/util/Map;)V+256
+j  javax.swing.RepaintManager.paintDirtyRegions()V+46
+j  javax.swing.RepaintManager.seqPaintDirtyRegions()V+73
+j  javax.swing.SystemEventQueueUtilities$ComponentWorkRequest.run()V+36
+j  java.awt.event.InvocationEvent.dispatch()V+47
+j  java.awt.EventQueue.dispatchEvent(Ljava/awt/AWTEvent;)V+26
+j  java.awt.EventDispatchThread.pumpOneEventForFilters(I)Z+204
+j  java.awt.EventDispatchThread.pumpEventsForFilter(ILjava/awt/Conditional;Ljava/awt/EventFilter;)V+30
+j  java.awt.EventDispatchThread.pumpEventsForHierarchy(ILjava/awt/Conditional;Ljava/awt/Component;)V+11
+j  java.awt.EventDispatchThread.pumpEvents(ILjava/awt/Conditional;)V+4
+j  java.awt.EventDispatchThread.pumpEvents(Ljava/awt/Conditional;)V+3
+j  java.awt.EventDispatchThread.run()V+9
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x04534800 JavaThread "D3D Screen Updater" daemon [_thread_blocked, id=14596, stack(0x06cc0000,0x06d10000)]
+  0x02109000 JavaThread "DestroyJavaVM" [_thread_blocked, id=14672, stack(0x00880000,0x008d0000)]
+=>0x044c8c00 JavaThread "AWT-EventQueue-0" [_thread_in_native, id=14600, stack(0x05010000,0x05060000)]
+  0x044a8000 JavaThread "AWT-Windows" daemon [_thread_in_native, id=14684, stack(0x04ba0000,0x04bf0000)]
+  0x044a7c00 JavaThread "AWT-Shutdown" [_thread_blocked, id=14740, stack(0x04740000,0x04790000)]
+  0x0449d000 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=6444, stack(0x046f0000,0x04740000)]
+  0x021b5800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=14728, stack(0x043a0000,0x043f0000)]
+  0x021a0800 JavaThread "CompilerThread0" daemon [_thread_blocked, id=14416, stack(0x04350000,0x043a0000)]
+  0x0219fc00 JavaThread "Attach Listener" daemon [_thread_blocked, id=14712, stack(0x04300000,0x04350000)]
+  0x02195000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=14408, stack(0x042b0000,0x04300000)]
+  0x02155400 JavaThread "Finalizer" daemon [_thread_blocked, id=9400, stack(0x04260000,0x042b0000)]
+  0x02150800 JavaThread "Reference Handler" daemon [_thread_blocked, id=11128, stack(0x04210000,0x04260000)]
+
+Other Threads:
+  0x0214ec00 VMThread [stack: 0x01990000,0x019e0000] [id=14624]
+  0x021b7800 WatcherThread [stack: 0x043f0000,0x04440000] [id=14692]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 960K, used 338K [0x24400000, 0x24500000, 0x248e0000)
+  eden space 896K,  30% used [0x24400000, 0x24444ab0, 0x244e0000)
+  from space 64K, 100% used [0x244f0000, 0x24500000, 0x24500000)
+  to   space 64K,   0% used [0x244e0000, 0x244e0000, 0x244f0000)
+ tenured generation   total 4096K, used 860K [0x248e0000, 0x24ce0000, 0x28400000)
+   the space 4096K,  20% used [0x248e0000, 0x249b7000, 0x249b7000, 0x24ce0000)
+ compacting perm gen  total 12288K, used 3016K [0x28400000, 0x29000000, 0x2c400000)
+   the space 12288K,  24% used [0x28400000, 0x286f2098, 0x286f2200, 0x29000000)
+    ro space 8192K,  63% used [0x2c400000, 0x2c913ae8, 0x2c913c00, 0x2cc00000)
+    rw space 12288K,  53% used [0x2cc00000, 0x2d2683f8, 0x2d268400, 0x2d800000)
+
+Dynamic libraries:
+0x00400000 - 0x00424000 	C:\Program Files\Java\jre6\bin\javaw.exe
+0x77070000 - 0x77197000 	C:\Windows\system32\ntdll.dll
+0x76e90000 - 0x76f6b000 	C:\Windows\system32\kernel32.dll
+0x76fa0000 - 0x77066000 	C:\Windows\system32\ADVAPI32.dll
+0x75bc0000 - 0x75c82000 	C:\Windows\system32\RPCRT4.dll
+0x76d20000 - 0x76dbd000 	C:\Windows\system32\USER32.dll
+0x771d0000 - 0x7721b000 	C:\Windows\system32\GDI32.dll
+0x771a0000 - 0x771be000 	C:\Windows\system32\IMM32.DLL
+0x76dc0000 - 0x76e88000 	C:\Windows\system32\MSCTF.dll
+0x77220000 - 0x772ca000 	C:\Windows\system32\msvcrt.dll
+0x75bb0000 - 0x75bb9000 	C:\Windows\system32\LPK.DLL
+0x75ad0000 - 0x75b4d000 	C:\Windows\system32\USP10.dll
+0x7c340000 - 0x7c396000 	C:\Program Files\Java\jre6\bin\msvcr71.dll
+0x6d800000 - 0x6da56000 	C:\Program Files\Java\jre6\bin\client\jvm.dll
+0x748c0000 - 0x748f2000 	C:\Windows\system32\WINMM.dll
+0x75c90000 - 0x75dd4000 	C:\Windows\system32\ole32.dll
+0x76b70000 - 0x76bfd000 	C:\Windows\system32\OLEAUT32.dll
+0x74880000 - 0x748b9000 	C:\Windows\system32\OLEACC.dll
+0x75720000 - 0x7574c000 	C:\Windows\system32\apphelp.dll
+0x6d280000 - 0x6d288000 	C:\Program Files\Java\jre6\bin\hpi.dll
+0x75850000 - 0x75857000 	C:\Windows\system32\PSAPI.DLL
+0x6d7b0000 - 0x6d7bc000 	C:\Program Files\Java\jre6\bin\verify.dll
+0x6d320000 - 0x6d33f000 	C:\Program Files\Java\jre6\bin\java.dll
+0x6d7f0000 - 0x6d7ff000 	C:\Program Files\Java\jre6\bin\zip.dll
+0x6d000000 - 0x6d138000 	C:\Program Files\Java\jre6\bin\awt.dll
+0x72ed0000 - 0x72f12000 	C:\Windows\system32\WINSPOOL.DRV
+0x74660000 - 0x747fe000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.6001.18000_none_5cdbaa5a083979cc\comctl32.dll
+0x76000000 - 0x76058000 	C:\Windows\system32\SHLWAPI.dll
+0x74870000 - 0x7487c000 	C:\Windows\system32\DWMAPI.DLL
+0x74900000 - 0x7493f000 	C:\Windows\system32\uxtheme.dll
+0x6d220000 - 0x6d274000 	C:\Program Files\Java\jre6\bin\fontmanager.dll
+0x10000000 - 0x1000d000 	C:\Program Files\FlashGet\fgmgr.dll
+0x75a50000 - 0x75ac3000 	C:\Windows\system32\comdlg32.dll
+0x76060000 - 0x76b70000 	C:\Windows\system32\SHELL32.dll
+0x74c20000 - 0x74c28000 	C:\Windows\system32\VERSION.dll
+0x76c50000 - 0x76d20000 	C:\Windows\system32\WININET.dll
+0x75b50000 - 0x75b53000 	C:\Windows\system32\Normaliz.dll
+0x76c00000 - 0x76c45000 	C:\Windows\system32\iertutil.dll
+0x724c0000 - 0x7267a000 	C:\Windows\system32\d3d9.dll
+0x72ab0000 - 0x72ab6000 	C:\Windows\system32\d3d8thk.dll
+0x720f0000 - 0x724bf000 	C:\Windows\system32\atiumdag.dll
+0x66e80000 - 0x67345000 	C:\Windows\system32\atiumdva.dll
+0x70750000 - 0x70763000 	C:\Program Files\UltraMon\RTSUltraMonHook.dll
+0x07110000 - 0x0715d000 	C:\Users\utku\workbench\workspaceOkul\shooter\lib\jogl\jogl.dll
+0x6d570000 - 0x6d63b000 	C:\Windows\system32\OPENGL32.dll
+0x06aa0000 - 0x06ac3000 	C:\Windows\system32\GLU32.dll
+0x6f560000 - 0x6f645000 	C:\Windows\system32\DDRAW.dll
+0x6f720000 - 0x6f726000 	C:\Windows\system32\DCIMAN32.dll
+0x75de0000 - 0x75f6a000 	C:\Windows\system32\SETUPAPI.dll
+0x69030000 - 0x69b5d000 	C:\Windows\system32\atioglxx.dll
+0x76f70000 - 0x76f9d000 	C:\Windows\system32\WS2_32.dll
+0x771c0000 - 0x771c6000 	C:\Windows\system32\NSI.dll
+0x072b0000 - 0x072d0000 	C:\Windows\system32\atiadlxx.dll
+0x749f0000 - 0x74a8b000 	C:\Windows\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.1434_none_d08b6002442c891f\MSVCR80.dll
+
+VM Arguments:
+jvm_args: -Djava.library.path=C:\Users\utku\workbench\workspaceOkul\shooter\lib\jogl;C:\Users\utku\workbench\workspaceOkul\shooter\lib\jogl -Dfile.encoding=Cp1254 
+java_command: Game
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.6.0_11
+PATH=C:/Program Files/Java/jre6/bin/client;C:/Program Files/Java/jre6/bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;c:\python25;c:\python25\scripts;C:\Program Files\Common Files\Softimage;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Common Files\Ulead Systems\MPEG;C:\Program Files\Java\jdk1.6.0_11\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files\TortoiseHg;C:\Program Files\Mercurial;C:\Program Files\IDM Computer Solutions\UltraEdit\;C:\MinGW\bin;C:\Program Files\Git\bin
+USERNAME=utku
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 23 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows Vista Build 6001 Service Pack 1
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 7 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 2097151k(776568k free), swap 4194303k(659936k free)
+
+vm_info: Java HotSpot(TM) Client VM (11.0-b16) for windows-x86 JRE (1.6.0_11-b03), built on Nov 10 2008 02:15:12 by "java_re" with MS VC++ 7.1
+
+time: Wed Mar 11 00:55:12 2009
+elapsed time: 17 seconds
+
